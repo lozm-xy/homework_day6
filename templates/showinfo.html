@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-3.1.1.js') }}"></script>
+    <script type="text/javascript">
+        function choice() {
+            $.ajax({
+                url:'/search',
+                success:function (msg) {
+                    info = '';
+                    info += msg.name;
+                    info += '<br>';
+                    info += msg.price;
+                    info += '<hr>';
+                    $('#mydiv').html(info);
+                },
+            dataType:'json',
+            });
+        }
+    </script>
+</head>
+<body>
+{#    <form action="/search" method="post">#}
+        请输入：<input type="text" name="choice">
+        <input type="button" value="查询" onclick="choice()" >
+{#    </form>#}
+    <div id="mydiv"></div>
+</body>
+</html>

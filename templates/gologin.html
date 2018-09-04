@@ -1,0 +1,7 @@
+{% import 'bootstrap/wtf.html' as login %}
+
+{{ login.quick_form(loginform,action='/gologin') }}
+
+{% for msg in get_flashed_messages() %}
+    {{ msg }}
+{% endfor %}
